@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pé de Outono — Atelier de Costura Afetiva</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; color: #333333; background-color: #FAFAFA; line-height: 1.6; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; color: #2C2C2C; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+    /* Borda Vintage */
+    .vintage-border {
+      width: 100%;
+      height: 18px;
+      background-color: #FAF8F5;
+      background-image: url("data:image/svg+xml,%3Csvg width='36' height='18' viewBox='0 0 36 18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%238B4513' opacity='0.45' d='M18 1.5l1.2 3.2 3.4-1.2-1.5 3.1 3.4 1-3 2 1.8 3.1-3.3-.8-.8 3.4-1.2-3.2-1.2 3.2-.8-3.4-3.3.8 1.8-3.1-3-2 3.4-1-1.5-3.1 3.4 1.2z'/%3E%3Cpath fill='%238B4513' opacity='0.25' d='M0 1.5l1.2 3.2 3.4-1.2-1.5 3.1 3.4 1-3 2 1.8 3.1-3.3-.8-.8 3.4-1.2-3.2-1.2 3.2-.8-3.4-3.3.8 1.8-3.1-3-2 3.4-1-1.5-3.1 3.4 1.2z'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-position: center;
+      border-top: 1px solid rgba(139, 69, 19, 0.15);
+      border-bottom: 1px solid rgba(139, 69, 19, 0.15);
+    }
+
+    /* Cabeçalho */
+    header { background-color: #FFFFFF; position: sticky; top: 0; z-index: 90; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .header-content { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; flex-wrap: nowrap; }
+    
+    .brand-container { display: flex; align-items: center; gap: 14px; margin-right: 25px; flex-shrink: 0; }
+    .logo-img { height: 85px; width: auto; object-fit: contain; transition: transform 0.3s ease; filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.04)); }
+    .brand-container:hover .logo-img { transform: scale(1.03); }
+    .brand-text { display: flex; flex-direction: column; justify-content: center; white-space: nowrap; }
+    .brand-title { font-family: 'Cormorant Garamond', serif; font-size: 1.95rem; font-weight: 600; color: #8B4513; line-height: 0.95; letter-spacing: 0.5px; white-space: nowrap; }
+    .brand-subtitle { font-family: 'Alex Brush', cursive; font-size: 1.4rem; color: #8B4513; line-height: 1; margin-top: 2px; letter-spacing: 0.5px; white-space: nowrap; }
+
+    /* Menu de Navegação */
+    nav { flex-grow: 1; display: flex; justify-content: center; }
+    nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+    nav a { 
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; 
+      font-weight: 500;
+      text-transform: uppercase; 
+      letter-spacing: 1.5px; 
+      color: #555555;
+      white-space: nowrap; 
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease; 
+      cursor: pointer; 
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #8B4513;
+      transition: width 0.3s ease;
+    }
+    nav a:hover { color: #8B4513; }
+    nav a:hover::after { width: 100%; }
+
+    /* Botões da Direita */
+    .user-nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-left: 15px; }
+    .btn-cart-nav {
+      background-color: #8B4513; color: #FFFFFF; border: none; padding: 8px 16px; border-radius: 30px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s;
+      white-space: nowrap;
+    }
+    .btn-cart-nav:hover { background-color: #A0522D; }
+    .btn-login-nav {
+      background: none; border: 1px solid #8B4513; padding: 7px 15px; border-radius: 30px; color: #8B4513;
+      font-family: 'Montserrat', sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s;
+      white-space: nowrap;
+    }
+    .btn-login-nav:hover { background-color: #8B4513; color: #FFFFFF; }
+
+    /* Hero */
+    .hero { background-color: #F4EBE1; padding: 70px 20px; text-align: center; }
+    .hero-content { max-width: 700px; margin: 0 auto; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 15px; }
+    .hero p { font-size: 1.1rem; color: #666; margin-bottom: 25px; }
+    .btn { display: inline-block; padding: 12px 30px; background-color: #2C2C2C; color: #FFFFFF; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; border-radius: 2px; transition: background-color 0.3s; cursor: pointer; border: none; }
+    .btn:hover { background-color: #A0522D; }
+
+    /* Seções Gerais */
+    .section-title { text-align: center; font-size: 2.3rem; margin: 60px 0 10px; }
+    .section-subtitle { text-align: center; font-size: 0.9rem; color: #777; margin-bottom: 40px; font-weight: 300; }
+    .tag-section { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: #8B4513; font-weight: 600; margin-bottom: 10px; display: block; }
+    
+    /* 1ª SEÇÃO — Pronta Entrega */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+    .product-card { background-color: #FFFFFF; border: 1px solid #EAEAEA; padding: 15px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .product-image { width: 100%; height: 260px; background-color: #EFEFEF; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.85rem; }
+    .product-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; }
+    .product-title { font-size: 1.2rem; margin-bottom: 10px; }
+    .product-price { font-weight: 500; color: #A0522D; margin-bottom: 15px; }
+    .btn-add-cart { width: 100%; padding: 10px; background-color: #2C2C2C; color: #FFFFFF; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
+    .btn-add-cart:hover { background-color: #8B4513; }
+
+    /* 2ª SEÇÃO — Sobre / A Essência */
+    .about-section { background-color: #FFFFFF; padding: 80px 0; border-top: 1px solid #EAEAEA; }
+    .about-history { display: flex; flex-wrap: wrap; align-items: center; gap: 50px; }
+    .about-history-text { flex: 1; min-width: 300px; }
+    .about-history-text h2 { font-size: 2.4rem; margin-bottom: 15px; line-height: 1.1; }
+    .about-history-text .quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: #8B4513; margin-bottom: 20px; display: block; }
+    .about-history-text p { font-size: 0.95rem; color: #555; margin-bottom: 15px; text-align: justify; }
+    .about-history-image { flex: 1; min-width: 300px; height: 380px; background-color: #EFEFEF; display: flex; align-items: center; justify-content: center; color: #999; border: 1px solid #EAEAEA; }
+
+    /* 3ª SEÇÃO — Projeto Memória */
+    .memory-section {
+      background-color: #FAF4EF;
+      padding: 80px 0;
+      border-top: 1px solid #EAE0D5;
+      border-bottom: 1px solid #EAE0D5;
+    }
+    .memory-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      align-items: flex-start;
+    }
+    .memory-image-box {
+      flex: 1;
+      min-width: 320px;
+      border: 1px solid #D8C8B8;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(139, 69, 19, 0.08);
+      border-radius: 4px;
+      position: sticky;
+      top: 100px;
+    }
+    .memory-image-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .memory-text-box { flex: 1.2; min-width: 320px; }
+    .memory-title { font-size: 2.6rem; color: #2C2C2C; margin-bottom: 15px; line-height: 1.1; }
+    .memory-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: #8B4513; margin-bottom: 25px; display: block; line-height: 1.4; }
+    .memory-body p { font-size: 0.95rem; color: #555555; margin-bottom: 18px; line-height: 1.7; text-align: justify; }
+
+    .btn-memory {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 14px 28px;
+      background-color: #8B4513;
+      color: #FFFFFF;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      letter-spacing: 1px;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(139, 69, 19, 0.15);
+    }
+    .btn-memory:hover { background-color: #A0522D; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(139, 69, 19, 0.25); }
+
+    /* 4ª SEÇÃO — Projetos Personalizados */
+    .custom-projects-section { background-color: #FFFFFF; padding: 80px 0; }
+    .custom-project-block {
+      background-color: #FAF8F5;
+      padding: 50px;
+      border: 1px solid #EAE0D5;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 40px;
+    }
+    .custom-project-img {
+      flex: 1;
+      min-width: 300px;
+      height: 320px;
+      background-color: #E8E2DA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #887B6C;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+    }
+    .custom-project-content { flex: 1.2; min-width: 280px; }
+    .custom-project-content h3 { font-size: 2.2rem; color: #2C2C2C; margin-bottom: 15px; font-weight: 500; line-height: 1.2; }
+    .custom-project-content p { font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.6; }
+    .link-arrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #2C2C2C;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 1px solid #2C2C2C;
+      padding-bottom: 5px;
+      transition: color 0.3s, border-color 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .link-arrow:hover { color: #8B4513; border-color: #8B4513; }
+
+    /* 5ª SEÇÃO — Novidades (Newsletter) */
+    .newsletter-section {
+      background-color: #F4EBE1;
+      padding: 70px 20px;
+      text-align: center;
+      border-top: 1px solid #EAE0D5;
+    }
+    .newsletter-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .newsletter-title {
+      font-size: 2.2rem;
+      color: #2C2C2C;
+      margin-bottom: 10px;
+    }
+    .newsletter-desc {
+      font-size: 0.95rem;
+      color: #666666;
+      margin-bottom: 25px;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .newsletter-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 12px 18px;
+      border: 1px solid #D8C8B8;
+      background-color: #FFFFFF;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .newsletter-input:focus {
+      border-color: #8B4513;
+    }
+    .btn-newsletter {
+      padding: 12px 28px;
+      background-color: #8B4513;
+      color: #FFFFFF;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      white-space: nowrap;
+    }
+    .btn-newsletter:hover {
+      background-color: #A0522D;
+    }
+
+    /* Rodapé */
+    footer { background-color: #FAF8F5; color: #666666; padding: 60px 0 30px; font-size: 0.85rem; border-top: 1px solid #EAEAEA; }
+    .footer-content { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 30px; margin-bottom: 50px; }
+    .footer-brand { padding-right: 20px; }
+    .footer-brand-header { display: flex; align-items: center; gap: 14px; margin-bottom: 15px; }
+    .footer-logo-img { height: 80px; width: auto; object-fit: contain; }
+    .footer-brand-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: #2C2C2C; line-height: 1; }
+    .footer-brand-subtitle { font-family: 'Alex Brush', cursive; font-size: 1.3rem; color: #8B4513; display: block; }
+    .footer-desc { color: #666666; font-size: 0.85rem; line-height: 1.5; margin-bottom: 20px; }
+    .instagram-link { display: inline-flex; align-items: center; gap: 8px; color: #555555; font-size: 0.85rem; transition: color 0.3s; }
+    .instagram-link:hover { color: #8B4513; }
+    .footer-col h4 { color: #2C2C2C; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 18px; font-weight: 500; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: #666666; transition: color 0.3s; cursor: pointer; }
+    .footer-col a:hover { color: #8B4513; }
+    .payment-icons { display: flex; gap: 12px; align-items: center; margin-top: 5px; }
+    .payment-icons svg { width: 28px; height: 28px; fill: #666666; }
+    .footer-bottom { border-top: 1px solid #EAEAEA; padding-top: 25px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #888888; }
+    .developer-credit strong { color: #2C2C2C; font-weight: 500; letter-spacing: 0.5px; }
+
+    /* Modais */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box { background: #FAF8F5; width: 90%; max-width: 550px; max-height: 90vh; overflow-y: auto; padding: 35px 30px; border-radius: 4px; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.15); text-align: center; }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: #888; }
+    
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; text-align: left; }
+    .form-group-full { grid-column: span 2; }
+    .input-field { width: 100%; padding: 12px; border: 1px solid #E2E2E2; background-color: #FAF8F5; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; outline: none; transition: border-color 0.3s; }
+    .input-field:focus { border-color: #8B4513; background-color: #FFFFFF; }
+    
+    .password-wrapper { position: relative; width: 100%; }
+    .password-wrapper .input-field { padding-right: 42px; }
+    .toggle-password-btn {
+      position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+      background: none; border: none; cursor: pointer; color: #888;
+      display: flex; align-items: center; justify-content: center; padding: 4px;
+      transition: color 0.3s;
+    }
+    .toggle-password-btn:hover { color: #8B4513; }
+    .toggle-password-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .btn-submit { width: 100%; padding: 14px; background-color: #8B4513; color: #FFFFFF; border: none; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; margin-top: 15px; }
+    .btn-submit:hover { background-color: #A0522D; }
+
+    .profile-info { background: #FFF; padding: 15px; border: 1px solid #EAEAEA; margin-bottom: 20px; text-align: left; font-size: 0.85rem; }
+    .order-card { background: #FFF; border: 1px solid #EAEAEA; padding: 12px; margin-bottom: 10px; text-align: left; font-size: 0.85rem; }
+    
+    .legal-text { text-align: left; font-size: 0.85rem; color: #555; line-height: 1.7; }
+    .legal-text h3 { font-size: 1.1rem; margin: 15px 0 5px; color: #2C2C2C; }
+
+    .shipping-box { background: #FFF; padding: 15px; border: 1px solid #EAEAEA; margin: 15px 0; text-align: left; }
+    .shipping-option { display: flex; justify-content: space-between; padding: 10px; border: 1px solid #DDD; margin-top: 8px; cursor: pointer; font-size: 0.85rem; }
+    .shipping-option.selected { border-color: #8B4513; background-color: #FAF4EF; }
+
+    /* Cookie Banner */
+    .cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 900px; background-color: #FFFFFF; padding: 20px 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #EAEAEA; display: flex; justify-content: space-between; align-items: center; gap: 20px; z-index: 100; border-radius: 4px; }
+    .cookie-banner.hidden { display: none; }
+    .cookie-text { font-size: 0.85rem; color: #555; }
+    .cookie-text a { text-decoration: underline; color: #8B4513; cursor: pointer; }
+    .cookie-buttons { display: flex; gap: 10px; }
+    .btn-cookie { padding: 8px 18px; font-size: 0.8rem; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; border-radius: 2px; }
+    .btn-accept { background-color: #8B4513; color: #FFF; }
+    .btn-decline { background-color: #EFEFEF; color: #555; }
+
+    /* BOTÃO FLUTUANTE DO WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: #FFFFFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      z-index: 150;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      background-color: #20ba5a;
+    }
+    .whatsapp-float svg {
+      width: 32px;
+      height: 32px;
+      fill: #FFFFFF;
+    }
+
+    @media (max-width: 1100px) {
+      .header-content { flex-direction: column; gap: 15px; }
+      .brand-container { margin-right: 0; }
+      nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+      .user-nav-actions { margin-left: 0; }
+    }
+    @media (max-width: 900px) {
+      .footer-content { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: span 2; }
+      .custom-project-block { padding: 30px; }
+      .memory-image-box { position: static; }
+    }
+    @media (max-width: 600px) {
+      .footer-content { grid-template-columns: 1fr; }
+      .footer-brand { grid-column: span 1; }
+      .footer-bottom { flex-direction: column; gap: 15px; text-align: center; }
+      .brand-container { flex-direction: column; text-align: center; gap: 8px; }
+      .logo-img { height: 70px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group-full { grid-column: span 1; }
+      .cookie-banner { flex-direction: column; text-align: center; }
+      .whatsapp-float { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+      .whatsapp-float svg { width: 28px; height: 28px; }
+      .memory-title { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="vintage-border"></div>
+
+  <!-- CABEÇALHO / MENU -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="brand-container">
+        <img src="IMG-pedeoutono.png" alt="Selo Pé de Outono" class="logo-img">
+        <div class="brand-text">
+          <span class="brand-title">Pé de Outono</span>
+          <span class="brand-subtitle">costura afetiva</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#pronta-entrega">PRONTA ENTREGA</a></li>
+          <li><a href="#sobre">SOBRE</a></li>
+          <li><a href="#projeto-memoria">PROJETO MEMÓRIA</a></li>
+          <li><a href="#projetos-personalizados">PROJETOS PERSONALIZADOS</a></li>
+          <li><a href="#contato">CONTATO</a></li>
+        </ul>
+      </nav>
+      <div class="user-nav-actions">
+        <button class="btn-cart-nav" onclick="openCartModal()">
+          Carrinho (<span id="cartCount">0</span>)
+        </button>
+        <button class="btn-login-nav" id="userBtn" onclick="handleUserNavClick()">Entrar</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO: Apresentação da Marca -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Costura Afetiva</h1>
+      <p>Peças autorais e artesanais criadas para trazer aconchego, memórias e exclusividade ao seu dia a dia.</p>
+      <a href="#pronta-entrega" class="btn">VER LOJA</a>
+    </div>
+  </section>
+
+  <!-- 1ª SEÇÃO — PRONTA ENTREGA -->
+  <main class="container" id="pronta-entrega">
+    <h2 class="section-title">Pronta Entrega</h2>
+    <p class="section-subtitle">Peças únicas e exclusivas prontas para habitar o seu lar</p>
+    <div class="products-grid">
+      <article class="product-card">
+        <div>
+          <div class="product-image"><span>[ Foto do Produto 1 ]</span></div>
+          <p class="product-category">Artesanato</p>
+          <h3 class="product-title">Bichinho Afetivo Exemplo 1</h3>
+          <p class="product-price">R$ 120,00</p>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('Bichinho Afetivo Exemplo 1', 120)">Adicionar ao Carrinho</button>
+      </article>
+
+      <article class="product-card">
+        <div>
+          <div class="product-image"><span>[ Foto do Produto 2 ]</span></div>
+          <p class="product-category">Decoração</p>
+          <h3 class="product-title">Bichinho Afetivo Exemplo 2</h3>
+          <p class="product-price">R$ 85,00</p>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('Bichinho Afetivo Exemplo 2', 85)">Adicionar ao Carrinho</button>
+      </article>
+
+      <article class="product-card">
+        <div>
+          <div class="product-image"><span>[ Foto do Produto 3 ]</span></div>
+          <p class="product-category">Acessórios</p>
+          <h3 class="product-title">Bichinho Afetivo Exemplo 3</h3>
+          <p class="product-price">R$ 150,00</p>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('Bichinho Afetivo Exemplo 3', 150)">Adicionar ao Carrinho</button>
+      </article>
+
+      <article class="product-card">
+        <div>
+          <div class="product-image"><span>[ Foto do Produto 4 ]</span></div>
+          <p class="product-category">Coleção Outono</p>
+          <h3 class="product-title">Bichinho Afetivo Exemplo 4</h3>
+          <p class="product-price">R$ 95,00</p>
+        </div>
+        <button class="btn-add-cart" onclick="addToCart('Bichinho Afetivo Exemplo 4', 95)">Adicionar ao Carrinho</button>
+      </article>
+    </div>
+  </main>
+
+  <!-- 2ª SEÇÃO — SOBRE / A ESSÊNCIA -->
+  <section class="about-section" id="sobre">
+    <div class="container">
+      <div class="about-history">
+        <div class="about-history-text">
+          <span class="tag-section">Nossa Essência</span>
+          <h2>Histórias Costuradas com Calma e Afeto</h2>
+          <span class="quote">"O outono ensina que desacelerar também é uma forma de florescer."</span>
+          <p>O <strong>Atelier Pé de Outono</strong> nasceu do desejo profundo de resgatar o tempo das coisas feitas à mão. Pelas mãos da artesã Lara Ramos, tecidos, linhas e memórias se entrelaçam para dar vida a bichinhos afetivos e peças de decoração que carregam poesia em cada ponto.</p>
+          <p>Acreditamos que uma peça artesanal vai muito além de sua matéria-prima: ela carrega intenção, carinho e uma energia única de aconchego. Nossos projetos são feitos sem pressa, respeitando o ritmo do tear e o detalhe do bordado, para que cheguem até você como um abraço em forma de arte.</p>
+        </div>
+        <div class="about-history-image"><span>[ Foto de Lara Ramos no Ateliê ]</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3ª SEÇÃO — PROJETO MEMÓRIA (Texto fluído sem travessões + foto da raposa) -->
+  <section class="memory-section" id="projeto-memoria">
+    <div class="container memory-container">
+      
+      <div class="memory-image-box">
+        <img src="IMG-20260823-WA0006.jpg" alt="Raposinhas artesanais do Projeto Memória Pé de Outono" />
+      </div>
+
+      <div class="memory-text-box">
+        <span class="tag-section">Projeto Memória</span>
+        <h2 class="memory-title">Algumas histórias merecem continuar.</h2>
+        <span class="memory-quote">"Há roupas que guardam muito mais do que tecido. Guardam um abraço, um perfume, um jeito de vestir, um momento vivido."</span>
+        
+        <div class="memory-body">
+          <p>Guardam a presença de alguém que foi muito amado e que, mesmo depois da despedida, continua fazendo parte da nossa história.</p>
+          <p>No Pé de Outono, criamos roupinhas para nossos bichinhos a partir dessas peças tão especiais. Você pode nos enviar uma roupa de alguém que partiu, como uma camisa, um vestido, um pijama ou uma peça que tenha significado, e nós a transformaremos, com todo cuidado, em uma pequena roupa para um bichinho.</p>
+          <p>Assim, parte daquela pessoa continua presente de uma maneira nova, delicada e cheia de afeto.</p>
+
+          <h3 style="font-size: 1.5rem; color: #2C2C2C; margin: 30px 0 10px; font-family: 'Cormorant Garamond', serif;">Um pedacinho de quem ficou.</h3>
+          <p>Cada encomenda é feita de forma artesanal e única. Respeitamos as características do tecido, os detalhes da peça e, principalmente, a história que ela carrega.</p>
+          <p>Não queremos apenas reaproveitar uma roupa. Queremos transformar uma lembrança em presença.</p>
+          
+          <ul style="list-style: none; margin: 20px 0; padding-left: 10px; border-left: 2px solid #8B4513;">
+            <li style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">• Um pequeno bolso pode guardar um botão original.</li>
+            <li style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">• Uma barra pode continuar fazendo parte da nova roupinha.</li>
+            <li style="margin-bottom: 10px; font-size: 0.95rem; color: #555;">• Uma estampa pode permanecer exatamente onde estava.</li>
+          </ul>
+
+          <p>São pequenos detalhes que fazem daquele bichinho um objeto único, porque ele carrega consigo um pedacinho de uma história que não queremos esquecer.</p>
+
+          <div style="background-color: #FFFFFF; padding: 25px; border-radius: 4px; border: 1px dashed #D8C8B8; margin: 30px 0 15px;">
+            <h3 style="font-size: 1.4rem; color: #8B4513; margin-bottom: 12px; font-family: 'Cormorant Garamond', serif;">Como funciona</h3>
+            <p style="margin-bottom: 12px;">Você entra em contato conosco e nos conta um pouco sobre a peça e sobre a pessoa que ela representa.</p>
+            <p style="margin-bottom: 12px;">Depois, conversamos sobre o bichinho, o modelo da roupinha e os detalhes que gostaria de preservar.</p>
+            <p style="margin-bottom: 12px;">A peça é então enviada ao atelier, onde será cuidadosamente transformada em uma nova roupinha, feita à mão e pensada especialmente para aquela memória.</p>
+            <p style="margin-bottom: 0; font-weight: 500; color: #2C2C2C;">Ao final, você recebe não apenas um bichinho vestido. Recebe uma pequena lembrança para abraçar, guardar e contar a história de quem continua vivendo em nós.</p>
+          </div>
+        </div>
+
+        <button class="btn-memory" onclick="openMemoryModal()">
+          Quero dar uma nova história a uma peça &rarr;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4ª SEÇÃO — PROJETOS PERSONALIZADOS -->
+  <section class="custom-projects-section" id="projetos-personalizados">
+    <div class="container">
+      <div class="custom-project-block">
+        <div class="custom-project-img">
+          <span>[ Imagem: Bastidores de Bordados e Tecidos Selecionados ]</span>
+        </div>
+        <div class="custom-project-content">
+          <span class="tag-section">Projetos Personalizados</span>
+          <h3>Uma peça pensada exclusivamente para o seu espaço e sentimento</h3>
+          <p>Para encomendas sob medida, nosso ponto de partida é uma conversa afetiva sobre o ambiente, as referências, a paleta de cores e o sentimento que a peça deve transmitir para a sua casa ou para presentear quem você ama.</p>
+          <span class="link-arrow" onclick="openModal('customProjectModal')">
+            Conhecer os trabalhos & solicitar projeto &rarr;
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5ª SEÇÃO — NOVIDADES (NEWSLETTER) -->
+  <section class="newsletter-section" id="novidades">
+    <div class="newsletter-container">
+      <span class="tag-section">Novidades do Ateliê</span>
+      <h2 class="newsletter-title">Receba nossas cartas e lançamentos</h2>
+      <p class="newsletter-desc">Cadastre seu e-mail para receber histórias, novas coleções e bastidores diretamente do nosso ateliê, sem excessos.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+        <input type="email" id="newsEmail" class="newsletter-input" placeholder="Digite seu melhor e-mail..." required>
+        <button type="submit" class="btn-newsletter">Cadastrar</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="vintage-border"></div>
+
+  <!-- RODAPÉ -->
+  <footer id="contato">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-brand-header">
+            <img src="IMG-pedeoutono.png" alt="Selo Pé de Outono" class="footer-logo-img">
+            <div>
+              <span class="footer-brand-title">Atelier Pé de Outono</span>
+              <span class="footer-brand-subtitle">costura afetiva</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Bichinhos afetivos e memórias feitas à mão: arte em costura e bordado | Por Lara Ramos
+          </p>
+          <a href="https://instagram.com/atelier.pedeoutono" target="_blank" class="instagram-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            @atelier.pedeoutono
+          </a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#pronta-entrega">Pronta entrega</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#projeto-memoria">Projeto Memória</a></li>
+            <li><a href="#projetos-personalizados">Projetos personalizados</a></li>
+            <li><a href="#novidades">Novidades</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Atendimento</h4>
+          <ul>
+            <li>(31) 982375799</li>
+            <li>contato.atelierpedeoutono@gmail.com</li>
+            <li>Belo Horizonte · MG</li>
+            <li>Segunda a sexta, 08h às 18h</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Informações</h4>
+          <ul>
+            <li><a onclick="openModal('privacyModal')">Política de Privacidade</a></li>
+            <li><a onclick="openModal('exchangeModal')">Trocas e devoluções</a></li>
+            <li><a onclick="openModal('termsModal')">Termos de uso</a></li>
+            <li><a onclick="handleUserNavClick()">Minha conta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pagamento</h4>
+          <div class="payment-icons">
+            <svg title="PIX" viewBox="0 0 24 24"><path d="M12 2L2 12l10 10 10-10L12 2zm3.8 12.2l-2.1 2.1c-.5.5-1.2.8-1.9.8s-1.4-.3-1.9-.8l-2.1-2.1c-.5-.5-.8-1.2-.8-1.9s.3-1.4.8-1.9l2.1-2.1c.5-.5 1.2-.8 1.9-.8s1.4.3 1.9.8l2.1 2.1c.5.5.8 1.2.8 1.9s-.3 1.4-.8 1.9z"/></svg>
+            <svg title="Cartão de Crédito" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V11h16v7zm0-10H4V6h16v2z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Atelier Pé de Outono — Todos os direitos reservados.
+        </div>
+        <div class="developer-credit">
+          Desenvolvido por <strong>Pé de Outono</strong>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a href="https://api.whatsapp.com/send?phone=5531982375799&text=Ol%C3%A1!%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida/or%C3%A7amento." target="_blank" class="whatsapp-float" title="Fale Conosco no WhatsApp">
+    <svg viewBox="0 0 32 32">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.825.738 5.58 2.14 8.01L0 32l8.223-2.158A15.93 15.93 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.28 22.584c-.347.978-1.725 1.792-2.82 2.025-.75.158-1.73.285-5.028-1.08-4.22-1.748-6.935-6.033-7.146-6.315-.21-.282-1.713-2.28-1.713-4.35 0-2.07 1.08-3.09 1.463-3.513.383-.423.834-.528 1.112-.528.278 0 .556.003.798.015.258.012.603-.098.943.718.348.836 1.19 2.908 1.294 3.12.105.212.176.458.035.74-.14.282-.21.458-.418.705-.21.247-.44.552-.628.74-.21.212-.43.442-.185.864.246.423 1.096 1.808 2.35 2.925 1.613 1.436 2.973 1.882 3.395 2.093.423.21.67.176.918-.106.247-.282 1.058-1.233 1.34-1.657.282-.423.564-.352.948-.211.383.141 2.43 1.146 2.846 1.354.417.212.695.317.798.493.104.176.104 1.022-.243 2.001z"/>
+    </svg>
+  </a>
+
+  <!-- MODAL PROJETOS PERSONALIZADOS -->
+  <div class="modal-overlay" id="customProjectModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('customProjectModal')">&times;</button>
+      <span style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #888;">Encomendas Exclusivas</span>
+      <h2 style="font-size: 1.8rem; margin: 5px 0 10px; color: #2C2C2C;">PROJETOS PERSONALIZADOS</h2>
+      <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Deseja um bichinho afetivo sob medida ou um tema especial? Conte-nos sua ideia!</p>
+
+      <form onsubmit="handleCustomSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group-full"><input type="text" id="custName" class="input-field" placeholder="Seu Nome Completo" required></div>
+          <div><input type="email" id="custEmail" class="input-field" placeholder="Seu E-mail" required></div>
+          <div><input type="tel" id="custPhone" class="input-field" placeholder="(DD) 9XXXX-XXXX" oninput="maskPhone(this)" maxlength="15" required></div>
+          <div class="form-group-full">
+            <textarea id="custDetails" class="input-field" rows="4" placeholder="Descreva sua ideia (cores, temas, datas especiais)..." required style="resize:none;"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">ENVIAR SOLICITAÇÃO VIA WHATSAPP</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL PROJETO MEMÓRIA -->
+  <div class="modal-overlay" id="memoryModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('memoryModal')">&times;</button>
+      <span style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #8B4513;">Transformar uma Memória</span>
+      <h2 style="font-size: 1.8rem; margin: 5px 0 10px; color: #2C2C2C;">PROJETO MEMÓRIA</h2>
+      <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Conte-nos um pouco sobre a peça de roupa e a história especial que deseja eternizar.</p>
+
+      <form onsubmit="handleMemorySubmit(event)">
+        <div class="form-grid">
+          <div class="form-group-full"><input type="text" id="memName" class="input-field" placeholder="Seu Nome Completo" required></div>
+          <div><input type="email" id="memEmail" class="input-field" placeholder="Seu E-mail" required></div>
+          <div><input type="tel" id="memPhone" class="input-field" placeholder="(DD) 9XXXX-XXXX" oninput="maskPhone(this)" maxlength="15" required></div>
+          <div class="form-group-full">
+            <textarea id="memDetails" class="input-field" rows="4" placeholder="Conte-nos sobre a peça (ex: uma camisa do vovô, vestido da mamãe) e detalhes que gostaria de preservar..." required style="resize:none;"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">CONVERSAR NO WHATSAPP</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL DE CADASTRO -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('authModal')">&times;</button>
+      <span style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: #888;">Crie sua Conta</span>
+      <h2 style="font-size: 1.8rem; margin: 5px 0 10px; color: #2C2C2C;">CADASTRO</h2>
+      <p style="font-size: 0.85rem; color: #666; margin-bottom: 15px;">Cadastre-se para acompanhar seus pedidos e realizar compras.</p>
+
+      <form id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-grid">
+          <div><input type="text" id="regFirstName" class="input-field" placeholder="Nome" required></div>
+          <div><input type="text" id="regLastName" class="input-field" placeholder="Sobrenome" required></div>
+          <div class="form-group-full"><input type="text" id="regPrefName" class="input-field" placeholder="Como quer ser chamada(o)?" required></div>
+          <div class="form-group-full"><input type="email" id="regEmail" class="input-field" placeholder="Seu e-mail" required></div>
+          
+          <div>
+            <input type="text" id="regCPF" class="input-field" placeholder="CPF: 000.000.000-00" oninput="maskCPF(this)" maxlength="14" required>
+          </div>
+
+          <div>
+            <input type="tel" id="regPhone" class="input-field" placeholder="WhatsApp: (00) 90000-0000" oninput="maskPhone(this)" maxlength="15" required>
+          </div>
+
+          <div class="form-group-full password-wrapper">
+            <input type="password" id="regPass" class="input-field" placeholder="Senha (8 a 10 caracteres)" minlength="8" maxlength="10" required>
+            <button type="button" class="toggle-password-btn" onclick="togglePasswordVisibility('regPass', this)" title="Mostrar / Ocultar Senha">
+              <svg id="eyeIcon" viewBox="0 0 24 24">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">CRIAR MINHA CONTA</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL MINHA CONTA -->
+  <div class="modal-overlay" id="accountModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('accountModal')">&times;</button>
+      <h2 style="font-size:1.8rem; margin-bottom:15px; color:#2C2C2C;">MINHA CONTA</h2>
+      <div class="profile-info" id="profileDetails"></div>
+      
+      <div style="display:flex; justify-content:space-between; align-items:center; margin:15px 0 10px;">
+        <h3 style="font-size:1.2rem; text-align:left;">Pedidos (Últimos 6 meses)</h3>
+      </div>
+      <div id="ordersHistoryList"></div>
+
+      <button class="btn-submit" style="background-color:#C0392B;" onclick="logout()">SAIR DA CONTA</button>
+    </div>
+  </div>
+
+  <!-- MODAIS LEGAIS -->
+  <div class="modal-overlay" id="privacyModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('privacyModal')">&times;</button>
+      <h2>POLÍTICA DE PRIVACIDADE</h2>
+      <div class="legal-text">
+        <p>No <strong>Atelier Pé de Outono</strong>, valorizamos a transparência e a segurança dos seus dados pessoais em conformidade com a LGPD (Lei Geral de Proteção de Dados).</p>
+        <h3>1. Coleta de Dados</h3>
+        <p>Coletamos informações como nome, CPF, e-mail, telefone e endereço unicamente para o processamento de pedidos, emissão de comprovantes e logística de entrega.</p>
+        <h3>2. Compartilhamento</h3>
+        <p>Não vendemos ou repassamos seus dados a terceiros. As informações são compartilhadas estritamente com parceiros logísticos (Correios/Transportadoras) e intermediadores de pagamento para conclusão do serviço.</p>
+        <h3>3. Seus Direitos</h3>
+        <p>Você pode solicitar a alteração ou exclusão definitiva dos seus dados de nosso banco de dados a qualquer momento pelo e-mail <em>contato.atelierpedeoutono@gmail.com</em>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="exchangeModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('exchangeModal')">&times;</button>
+      <h2>TROCAS E DEVOLUÇÕES</h2>
+      <div class="legal-text">
+        <h3>1. Arrependimento de Compra (Pronta Entrega)</h3>
+        <p>Conforme o Art. 49 do CDC, o cliente tem até 7 dias corridos após o recebimento para solicitar a devolução de itens da pronta entrega. O produto deve estar sem marcas de uso e na embalagem original.</p>
+        <h3>2. Peças Sob Encomenda / Projetos Memória</h3>
+        <p>Peças desenvolvidas sob medida ou que utilizem tecidos afetivos fornecidos pelo cliente não possuem devolução por arrependimento, exceto em caso de vício ou defeito comprovado de fabricação.</p>
+        <h3>3. Garantia e Defeitos</h3>
+        <p>Oferecemos garantia legal de 90 dias para defeitos de fabricação em nossas peças artesanais. Desgastes causados por lavagem inadequada ou uso indevido não são cobertos pela garantia.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="termsModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('termsModal')">&times;</button>
+      <h2>TERMOS DE USO</h2>
+      <div class="legal-text">
+        <h3>1. Processo Artesanal</h3>
+        <p>Nossos bichinhos e peças de costura afetiva são feitos artesanalmente. Pequenas variações nas tonalidades dos tecidos, bordados e acabamentos fazem parte da essência do trabalho artesanal e não constituem defeito.</p>
+        <h3>2. Prazos de Produção</h3>
+        <p>Peças sob encomenda e do Projeto Memória possuem um prazo de confecção informado no momento da conversa inicial, que deve ser somado ao prazo de envio dos Correios/Transportadora.</p>
+        <h3>3. Direitos Autorais</h3>
+        <p>Todas as imagens, designs e textos presentes neste site são de propriedade intelectual exclusiva do <strong>Atelier Pé de Outono</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL CHECKOUT / CARRINHO -->
+  <div class="modal-overlay" id="cartModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeModal('cartModal')">&times;</button>
+      <h2 style="font-size: 1.8rem; margin-bottom: 15px; color:#2C2C2C;">MEU CARRINHO</h2>
+      
+      <div id="cartItemsContainer"></div>
+
+      <div class="shipping-box">
+        <label style="font-weight:600; font-size:0.85rem;">Calcular Frete de Envio:</label>
+        <div style="display:flex; gap:8px; margin-top:5px;">
+          <input type="text" id="cepInput" class="input-field" placeholder="CEP (ex: 30100-000)" maxlength="9">
+          <button style="padding:0 15px; background:#2C2C2C; color:#fff; border:none; cursor:pointer;" onclick="calculateShipping()">Calcular</button>
+        </div>
+        <div id="shippingResults"></div>
+      </div>
+
+      <div style="text-align:left; margin-top:15px;">
+        <label style="font-weight:600; font-size:0.85rem;">Forma de Pagamento:</label>
+        <select id="paymentMethod" class="input-field" style="margin-top:5px;">
+          <option value="PIX">PIX (Aprovação Instantânea)</option>
+          <option value="Cartão de Crédito">Cartão de Crédito</option>
+        </select>
+      </div>
+
+      <div style="margin-top:20px; font-weight:600; font-size:1.2rem; text-align:right;" id="cartTotalText">
+        Total: R$ 0,00
+      </div>
+
+      <button class="btn-submit" onclick="processCheckout()">FINALIZAR COMPRA</button>
+    </div>
+  </div>
+
+  <!-- COOKIES -->
+  <div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-text">
+      Usamos cookies para entender como você navega no site e melhorar sua experiência. Veja nossa <a onclick="openModal('privacyModal')">Política de Privacidade</a>.
+    </div>
+    <div class="cookie-buttons">
+      <button class="btn-cookie btn-decline" onclick="closeCookieBanner()">Recusar</button>
+      <button class="btn-cookie btn-accept" onclick="closeCookieBanner()">Aceitar</button>
+    </div>
+  </div>
+
+  <script>
+    let currentUser = JSON.parse(localStorage.getItem('pedeoutono_user')) || null;
+    let cart = [];
+    let selectedShippingCost = 0;
+    
+    let ordersHistory = JSON.parse(localStorage.getItem('pedeoutono_orders')) || [
+      { id: 'PED-1042', date: '10/02/2026', total: 120.00, status: 'Entregue', timestamp: new Date('2026-02-10').getTime() },
+      { id: 'PED-0812', date: '15/06/2025', total: 95.00, status: 'Entregue', timestamp: new Date('2025-06-15').getTime() }
+    ];
+
+    /* --- FUNÇÕES DE MÁSCARA --- */
+
+    function maskCPF(input) {
+      let v = input.value.replace(/\D/g, "");
+      if (v.length > 11) v = v.substring(0, 11);
+      v = v.replace(/(\d{3})(\d)/, "$1.$2");
+      v = v.replace(/(\d{3})(\d)/, "$1.$2");
+      v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+      input.value = v;
+    }
+
+    function maskPhone(input) {
+      let v = input.value.replace(/\D/g, "");
+      if (v.length === 0) { input.value = ""; return; }
+      if (v.length >= 3) {
+        let ddd = v.substring(0, 2);
+        let num = v.substring(2);
+        if (num.charAt(0) !== '9') num = '9' + num;
+        v = ddd + num;
+      }
+      if (v.length > 11) v = v.substring(0, 11);
+      if (v.length <= 2) { input.value = "(" + v; }
+      else if (v.length <= 7) { input.value = "(" + v.substring(0, 2) + ") " + v.substring(2); }
+      else { input.value = "(" + v.substring(0, 2) + ") " + v.substring(2, 7) + "-" + v.substring(7); }
+    }
+
+    function togglePasswordVisibility(fieldId, btn) {
+      const field = document.getElementById(fieldId);
+      const svg = btn.querySelector('svg');
+      if (field.type === "password") {
+        field.type = "text";
+        svg.innerHTML = `<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line>`;
+      } else {
+        field.type = "password";
+        svg.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+      }
+    }
+
+    /* --- NAVEGAÇÃO E AUTENTICAÇÃO --- */
+
+    function updateNav() {
+      const btn = document.getElementById('userBtn');
+      if (currentUser) {
+        btn.textContent = `Olá, ${currentUser.prefName}`;
+      } else {
+        btn.textContent = 'Entrar';
+      }
+    }
+    updateNav();
+
+    function handleUserNavClick() {
+      if (currentUser) {
+        renderAccountInfo();
+        openModal('accountModal');
+      } else {
+        openModal('authModal');
+      }
+    }
+
+    function handleRegister(e) {
+      e.preventDefault();
+      currentUser = {
+        firstName: document.getElementById('regFirstName').value,
+        lastName: document.getElementById('regLastName').value,
+        prefName: document.getElementById('regPrefName').value,
+        email: document.getElementById('regEmail').value,
+        cpf: document.getElementById('regCPF').value,
+        phone: document.getElementById('regPhone').value
+      };
+      localStorage.setItem('pedeoutono_user', JSON.stringify(currentUser));
+      updateNav();
+      closeModal('authModal');
+      alert(`Conta criada com sucesso! Bem-vinda(o), ${currentUser.prefName}.`);
+    }
+
+    function openMemoryModal() {
+      openModal('memoryModal');
+    }
+
+    function handleCustomSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('custName').value;
+      const details = document.getElementById('custDetails').value;
+      const msg = `Olá! Meu nome é ${name}. Gostaria de solicitar um orçamento para um PROJETO PERSONALIZADO: ${details}`;
+      window.open(`https://wa.me/5531982375799?text=${encodeURIComponent(msg)}`, '_blank');
+      closeModal('customProjectModal');
+    }
+
+    function handleMemorySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('memName').value;
+      const details = document.getElementById('memDetails').value;
+      const msg = `Olá! Meu nome é ${name}. Gostaria de dar uma nova história a uma peça através do PROJETO MEMÓRIA:\n\n${details}`;
+      window.open(`https://wa.me/5531982375799?text=${encodeURIComponent(msg)}`, '_blank');
+      closeModal('memoryModal');
+    }
+
+    function handleNewsletterSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('newsEmail').value;
+      alert(`Obrigado por se inscrever! Enviamos uma confirmação para ${email}.`);
+      document.getElementById('newsEmail').value = '';
+    }
+
+    function logout() {
+      currentUser = null;
+      localStorage.removeItem('pedeoutono_user');
+      updateNav();
+      closeModal('accountModal');
+    }
+
+    function renderAccountInfo() {
+      document.getElementById('profileDetails').innerHTML = `
+        <p><strong>Nome:</strong> ${currentUser.firstName} ${currentUser.lastName}</p>
+        <p><strong>Nome de Preferência:</strong> ${currentUser.prefName}</p>
+        <p><strong>E-mail:</strong> ${currentUser.email}</p>
+        <p><strong>CPF:</strong> ${currentUser.cpf}</p>
+        <p><strong>WhatsApp:</strong> ${currentUser.phone}</p>
+      `;
+
+      const sixMonthsAgo = new Date();
+      sixMonthsAgo.setDate(sixMonthsAgo.getDate() - 180);
+
+      const recentOrders = ordersHistory.filter(order => {
+        return order.timestamp && order.timestamp >= sixMonthsAgo.getTime();
+      });
+
+      const ordersContainer = document.getElementById('ordersHistoryList');
+      if (recentOrders.length === 0) {
+        ordersContainer.innerHTML = `
+          <p style="font-size:0.85rem; color:#777; margin-bottom:10px;">Nenhum pedido nos últimos 6 meses.</p>
+          <p style="font-size:0.75rem; color:#8B4513;">Para histórico anterior, entre em contato via WhatsApp.</p>
+        `;
+      } else {
+        ordersContainer.innerHTML = recentOrders.map(order => `
+          <div class="order-card">
+            <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+              <strong>#${order.id}</strong>
+              <span style="color:#8B4513;">${order.status}</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; color:#666;">
+              <span>Data: ${order.date}</span>
+              <strong>R$ ${order.total.toFixed(2)}</strong>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    /* --- CARRINHO E LOJA --- */
+
+    function addToCart(title, price) {
+      cart.push({ title, price });
+      document.getElementById('cartCount').textContent = cart.length;
+      alert(`"${title}" foi adicionado ao seu carrinho!`);
+    }
+
+    function openCartModal() {
+      renderCart();
+      openModal('cartModal');
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsContainer');
+      if (cart.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#888; padding:20px 0;">Seu carrinho está vazio.</p>';
+      } else {
+        container.innerHTML = cart.map(item => `
+          <div style="display:flex; justify-content:space-between; padding:10px 0; border-bottom:1px solid #EEE; font-size:0.9rem;">
+            <span>${item.title}</span>
+            <strong>R$ ${item.price.toFixed(2)}</strong>
+          </div>
+        `).join('');
+      }
+      updateTotal();
+    }
+
+    function calculateShipping() {
+      const cep = document.getElementById('cepInput').value.replace(/\D/g, '');
+      const resultsDiv = document.getElementById('shippingResults');
+      
+      if (cep.length !== 8) {
+        alert('Digite um CEP válido.');
+        return;
+      }
+
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.erro) {
+            alert('CEP não encontrado.');
+            return;
+          }
+          const pacPrice = data.uf === 'MG' ? 14.90 : 27.50;
+          const sedexPrice = data.uf === 'MG' ? 22.90 : 42.00;
+
+          resultsDiv.innerHTML = `
+            <div style="font-size:0.75rem; color:#555; margin: 8px 0 4px;">Destino: ${data.localidade}/${data.uf}</div>
+            <div class="shipping-option" onclick="selectShipping(${pacPrice}, this)">
+              <span>PAC (Normal)</span>
+              <strong>R$ ${pacPrice.toFixed(2)}</strong>
+            </div>
+            <div class="shipping-option" onclick="selectShipping(${sedexPrice}, this)">
+              <span>SEDEX (Expressa)</span>
+              <strong>R$ ${sedexPrice.toFixed(2)}</strong>
+            </div>
+          `;
+        })
+        .catch(() => alert('Erro ao buscar CEP.'));
+    }
+
+    function selectShipping(cost, el) {
+      document.querySelectorAll('.shipping-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+      selectedShippingCost = cost;
+      updateTotal();
+    }
+
+    function updateTotal() {
+      const itemsTotal = cart.reduce((acc, item) => acc + item.price, 0);
+      const grandTotal = itemsTotal + selectedShippingCost;
+      document.getElementById('cartTotalText').textContent = `Total: R$ ${grandTotal.toFixed(2)}`;
+    }
+
+    function processCheckout() {
+      if (cart.length === 0) {
+        alert('Adicione produtos ao carrinho antes de finalizar.');
+        return;
+      }
+
+      if (!currentUser) {
+        closeModal('cartModal');
+        openModal('authModal');
+        alert('Para continuar com a compra, você precisa criar uma conta.');
+        return;
+      }
+
+      if (selectedShippingCost === 0) {
+        alert('Por favor, calcule e escolha uma opção de frete.');
+        return;
+      }
+
+      const itemsTotal = cart.reduce((acc, item) => acc + item.price, 0);
+      const totalOrder = itemsTotal + selectedShippingCost;
+      const payment = document.getElementById('paymentMethod').value;
+      const newOrderId = 'PED-' + Math.floor(1000 + Math.random() * 9000);
+      const now = new Date();
+
+      const newOrder = {
+        id: newOrderId,
+        date: now.toLocaleDateString('pt-BR'),
+        total: totalOrder,
+        status: 'Aguardando Pagamento (' + payment + ')',
+        timestamp: now.getTime()
+      };
+
+      ordersHistory.unshift(newOrder);
+      localStorage.setItem('pedeoutono_orders', JSON.stringify(ordersHistory));
+
+      alert(`Pedido #${newOrderId} realizado com sucesso em nome de ${currentUser.prefName}!\nPagamento via ${payment}.\nObrigado pela preferência!`);
+
+      cart = [];
+      selectedShippingCost = 0;
+      document.getElementById('cartCount').textContent = '0';
+      closeModal('cartModal');
+    }
+
+    function openModal(id) { document.getElementById(id).classList.add('active'); }
+    function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+    function closeCookieBanner() { document.getElementById('cookieBanner').classList.add('hidden'); }
+  </script>
+</body>
+</html>
