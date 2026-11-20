@@ -1,0 +1,28 @@
+{
+  "itens": [
+    {
+      "titulo": "Bichinho Afetivo Exemplo 1",
+      "categoria": "Artesanato",
+      "preco": 120.00,
+      "imagem": ""
+    },
+    {
+      "titulo": "Bichinho Afetivo Exemplo 2",
+      "categoria": "Decoração",
+      "preco": 85.00,
+      "imagem": ""
+    },
+    {
+      "titulo": "Bichinho Afetivo Exemplo 3",
+      "categoria": "Acessórios",
+      "preco": 150.00,
+      "imagem": ""
+    },
+    {
+      "titulo": "Bichinho Afetivo Exemplo 4",
+      "categoria": "Coleção Outono",
+      "preco": 95.00,
+      "imagem": ""
+    }
+  ]
+}
