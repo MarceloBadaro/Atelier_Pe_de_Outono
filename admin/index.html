@@ -6,49 +6,6 @@
   <title>Painel Administrativo — Pé de Outono</title>
 </head>
 <body>
-  <script>window.CMS_MANUAL_INIT = true;</script>
-  <script src="https://unpkg.com/netlify-cms@^2.10.192/dist/netlify-cms.js"></script>
-  <script>
-    CMS.init({
-      config: {
-        load_config_file: false,
-        backend: {
-          name: 'github',
-          repo: 'MarceloBadaro/Atelier_Pe_de_Outono',
-          branch: 'main',
-          base_url: 'https://api.netlify.com',
-          site_id: 'c36baec4-b331-44df-97af-4bce11767a22'
-        },
-        media_folder: 'images/produtos',
-        public_folder: 'images/produtos',
-        collections: [
-          {
-            name: 'loja',
-            label: 'Gerenciar Vitrine',
-            files: [
-              {
-                label: 'Produtos Pronta Entrega',
-                name: 'produtos',
-                file: 'produtos.json',
-                fields: [
-                  {
-                    label: 'Lista de Bichinhos / Produtos',
-                    name: 'itens',
-                    widget: 'list',
-                    fields: [
-                      { label: 'Nome do Produto', name: 'titulo', widget: 'string' },
-                      { label: 'Categoria (ex: Artesanato, Decoração)', name: 'categoria', widget: 'string' },
-                      { label: 'Preço (apenas números, ex: 120.00)', name: 'preco', widget: 'number', value_type: 'float' },
-                      { label: 'Foto do Produto', name: 'imagem', widget: 'image' }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    });
-  </script>
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>
