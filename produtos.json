@@ -4,49 +4,64 @@
       "titulo": "Boneca Guida & os Cogumelos do Bosque",
       "categoria": "Bonecas Afetivas",
       "preco": 185,
-      "imagem": "/images/produtos/Guida.jpg"
+      "imagem": "/images/produtos/Guida.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Casal de Lobinhos Aurora & Otto",
       "categoria": "Bichinhos do Bosque",
       "preco": 280,
-      "imagem": "/images/produtos/Casal de lobos.jpg"
+      "imagem": "/images/produtos/Casal de lobos.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Casal de Raposas Bento & Amélie",
       "categoria": "Coleção Outono",
       "preco": 350,
-      "imagem": "/images/produtos/Casal de Raposa.jpg"
+      "imagem": "/images/produtos/Casal de Raposa.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Casal de Cervos Flora & Joaquim",
       "categoria": "Especial Natal",
       "preco": 240,
-      "imagem": "/images/produtos/Casal de cervos.jpg"
+      "imagem": "/images/produtos/Casal de cervos.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Boneca Clarice",
       "categoria": "Bonecas Afetivas",
       "preco": 85,
-      "imagem": "/images/produtos/Boneca Clarice.jpg"
+      "imagem": "/images/produtos/Boneca Clarice.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Boneca Cecília",
       "categoria": "Bonecas Afetivas",
       "preco": 85,
-      "imagem": "/images/produtos/Boneca Cecília.jpg"
+      "imagem": "/images/produtos/Boneca Cecília.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Boneca Lya",
       "categoria": "Bonecas Afetivas",
       "preco": 85,
-      "imagem": "/images/produtos/Boneca Lya.jpg"
+      "imagem": "/images/produtos/Boneca Lya.jpg",
+      "detalhes": ""
     },
     {
       "titulo": "Boneca Mel",
       "categoria": "Bonecas Afetivas",
       "preco": 85,
-      "imagem": "/images/produtos/Boneca Mel.jpg"
+      "imagem": "/images/produtos/Boneca Mel.jpg",
+      "detalhes": ""
+    },
+    {
+      "titulo": "Boneca Olívia & o Gansinho da Fazenda",
+      "categoria": "Bonecas Afetivas",
+      "preco": 150,
+      "imagem": "/images/produtos/Boneca Olívia & o Gansinho da Fazenda.jpg",
+      "detalhes": ""
     }
   ]
 }
