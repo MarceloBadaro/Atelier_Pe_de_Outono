@@ -2,8 +2,6 @@ backend:
   name: github
   repo: MarceloBadaro/Atelier_Pe_de_Outono
   branch: main
-  base_url: https://api.netlify.com
-  site_id: c36baec4-b331-44df-97af-4bce11767a22
 
 media_folder: "images/produtos"
 public_folder: "images/produtos"
@@ -21,6 +19,7 @@ collections:
             widget: "list"
             fields:
               - { label: "Nome do Produto", name: "titulo", widget: "string" }
-              - { label: "Categoria (ex: Artesanato, Decoração)", name: "categoria", widget: "string" }
+              - { label: "Categoria (ex: Bonecas Afetivas, Bichinhos do Bosque)", name: "categoria", widget: "string" }
               - { label: "Preço (apenas números, ex: 120.00)", name: "preco", widget: "number", value_type: "float" }
               - { label: "Foto do Produto", name: "imagem", widget: "image" }
+              - { label: "Detalhes / Características (tamanho, acessórios, material)", name: "detalhes", widget: "text", required: false }
