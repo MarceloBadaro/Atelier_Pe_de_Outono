@@ -102,12 +102,29 @@
     .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
     .product-card { background-color: #FFFFFF; border: 1px solid #EAEAEA; padding: 15px; text-align: center; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
     .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-    .product-image { width: 100%; height: 260px; background-color: #EFEFEF; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.85rem; overflow: hidden; }
+    .product-image { width: 100%; height: 260px; background-color: #EFEFEF; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 0.85rem; overflow: hidden; cursor: pointer; }
+    .product-image img { transition: transform 0.4s ease; }
+    .product-card:hover .product-image img { transform: scale(1.04); }
     .product-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 5px; }
-    .product-title { font-size: 1.2rem; margin-bottom: 10px; }
+    .product-title { font-size: 1.2rem; margin-bottom: 10px; cursor: pointer; transition: color 0.3s; }
+    .product-title:hover { color: #8B4513; }
     .product-price { font-weight: 500; color: #A0522D; margin-bottom: 15px; }
+    .card-actions { display: flex; flex-direction: column; gap: 8px; }
+    .btn-details { width: 100%; padding: 9px; background-color: transparent; color: #8B4513; border: 1px solid #8B4513; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s; }
+    .btn-details:hover { background-color: #FAF4EF; }
     .btn-add-cart { width: 100%; padding: 10px; background-color: #2C2C2C; color: #FFFFFF; border: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: background 0.3s; }
     .btn-add-cart:hover { background-color: #8B4513; }
+
+    /* Modal de Detalhes do Produto */
+    .product-detail-box { max-width: 720px; text-align: left; padding: 30px; }
+    .product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: center; }
+    .product-detail-img { width: 100%; height: 340px; background-color: #EFEFEF; border: 1px solid #EAE0D5; border-radius: 4px; overflow: hidden; display: flex; align-items: center; justify-content: center; color: #999; }
+    .product-detail-img img { width: 100%; height: 100%; object-fit: cover; }
+    .product-detail-info .product-category { margin-bottom: 6px; }
+    .product-detail-info h2 { font-size: 2rem; line-height: 1.15; margin-bottom: 10px; color: #2C2C2C; }
+    .product-detail-price { font-size: 1.35rem; font-weight: 600; color: #8B4513; margin-bottom: 16px; }
+    .product-detail-desc { font-size: 0.9rem; color: #555; line-height: 1.7; background-color: #FFFFFF; border: 1px solid #EAE0D5; padding: 15px; border-radius: 4px; margin-bottom: 20px; white-space: pre-line; }
+    .product-detail-note { font-size: 0.78rem; color: #777; margin-bottom: 18px; line-height: 1.5; }
 
     /* 2ª SEÇÃO — Sobre / A Essência */
     .about-section { background-color: #FFFFFF; padding: 80px 0; border-top: 1px solid #EAEAEA; }
@@ -292,10 +309,12 @@
     .developer-credit strong { color: #2C2C2C; font-weight: 500; letter-spacing: 0.5px; }
 
     /* Modais */
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45); display: flex; justify-content: center; align-items: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    .modal-box { background: #FAF8F5; width: 90%; max-width: 550px; max-height: 90vh; overflow-y: auto; padding: 35px 30px; border-radius: 4px; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.15); text-align: center; }
-    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; background: none; border: none; cursor: pointer; color: #888; }
+    .modal-box { background: #FAF8F5; width: 92%; max-width: 550px; max-height: 90vh; overflow-y: auto; padding: 35px 30px; border-radius: 4px; position: relative; box-shadow: 0 15px 35px rgba(0,0,0,0.18); text-align: center; }
+    .modal-box.product-detail-box { max-width: 740px; text-align: left; }
+    .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.6rem; background: none; border: none; cursor: pointer; color: #888; line-height: 1; }
+    .close-modal:hover { color: #2C2C2C; }
     
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px; text-align: left; }
     .form-group-full { grid-column: span 2; }
@@ -397,7 +416,10 @@
       .product-image { height: 150px; margin-bottom: 10px; }
       .product-title { font-size: 1rem; margin-bottom: 6px; }
       .product-price { font-size: 0.9rem; margin-bottom: 10px; }
-      .btn-add-cart { padding: 8px 6px; font-size: 0.68rem; letter-spacing: 0.5px; }
+      .btn-details, .btn-add-cart { padding: 8px 6px; font-size: 0.68rem; letter-spacing: 0.5px; }
+      .product-detail-grid { grid-template-columns: 1fr; gap: 18px; }
+      .product-detail-img { height: 260px; }
+      .product-detail-info h2 { font-size: 1.6rem; }
       .about-section, .memory-section, .custom-projects-section { padding: 45px 0; }
       .about-history, .memory-container { gap: 25px; }
       .about-history-image { height: 250px; }
@@ -645,6 +667,24 @@
     </svg>
   </a>
 
+  <!-- MODAL DETALHES DO PRODUTO -->
+  <div class="modal-overlay" id="productDetailModal" onclick="if(event.target === this) closeModal('productDetailModal')">
+    <div class="modal-box product-detail-box">
+      <button class="close-modal" onclick="closeModal('productDetailModal')">&times;</button>
+      <div class="product-detail-grid">
+        <div class="product-detail-img" id="detailImgBox"></div>
+        <div class="product-detail-info">
+          <p class="product-category" id="detailCategory"></p>
+          <h2 id="detailTitle"></h2>
+          <p class="product-detail-price" id="detailPrice"></p>
+          <div class="product-detail-desc" id="detailDescription"></div>
+          <p class="product-detail-note">Peça artesanal exclusiva feita à mão no Atelier Pé de Outono. Pronta entrega com envio em até 2 dias úteis.</p>
+          <button class="btn-submit" id="detailAddBtn" style="margin-top:0;">ADICIONAR AO CARRINHO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- MODAL PROJETOS PERSONALIZADOS -->
   <div class="modal-overlay" id="customProjectModal">
     <div class="modal-box">
@@ -838,6 +878,7 @@
     let currentUser = JSON.parse(localStorage.getItem('pedeoutono_user')) || null;
     let cart = [];
     let selectedShippingCost = 0;
+    let produtosVitrine = [];
     
     let ordersHistory = JSON.parse(localStorage.getItem('pedeoutono_orders')) || [
       { id: 'PED-1042', date: '10/02/2026', total: 120.00, status: 'Entregue', timestamp: new Date('2026-02-10').getTime() },
@@ -856,7 +897,9 @@
           return;
         }
 
-        container.innerHTML = data.itens.map(item => {
+        produtosVitrine = data.itens;
+
+        container.innerHTML = produtosVitrine.map((item, index) => {
           const precoFormatado = Number(item.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
           const imgHtml = item.imagem 
             ? `<img src="${item.imagem}" alt="${item.titulo}" style="width:100%; height:100%; object-fit:cover;">`
@@ -865,12 +908,15 @@
           return `
             <article class="product-card">
               <div>
-                <div class="product-image">${imgHtml}</div>
+                <div class="product-image" onclick="openProductDetails(${index})" title="Clique para ver os detalhes">${imgHtml}</div>
                 <p class="product-category">${item.categoria}</p>
-                <h3 class="product-title">${item.titulo}</h3>
+                <h3 class="product-title" onclick="openProductDetails(${index})">${item.titulo}</h3>
                 <p class="product-price">R$ ${precoFormatado}</p>
               </div>
-              <button class="btn-add-cart" onclick="addToCart('${item.titulo.replace(/'/g, "\\'")}', ${item.preco})">Adicionar ao Carrinho</button>
+              <div class="card-actions">
+                <button class="btn-details" onclick="openProductDetails(${index})">Ver Detalhes</button>
+                <button class="btn-add-cart" onclick="addToCart('${item.titulo.replace(/'/g, "\\'")}', ${item.preco})">Adicionar ao Carrinho</button>
+              </div>
             </article>
           `;
         }).join('');
@@ -879,6 +925,34 @@
       }
     }
     carregarProdutosDoPainel();
+
+    function openProductDetails(index) {
+      const item = produtosVitrine[index];
+      if (!item) return;
+
+      const precoFormatado = Number(item.preco).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const imgBox = document.getElementById('detailImgBox');
+      imgBox.innerHTML = item.imagem
+        ? `<img src="${item.imagem}" alt="${item.titulo}">`
+        : `<span>[ Sem Foto ]</span>`;
+
+      document.getElementById('detailCategory').textContent = item.categoria || '';
+      document.getElementById('detailTitle').textContent = item.titulo || '';
+      document.getElementById('detailPrice').textContent = `R$ ${precoFormatado}`;
+      
+      const descText = item.detalhes && item.detalhes.trim() !== ''
+        ? item.detalhes
+        : 'Peça confeccionada artesanalmente com tecidos selecionados 100% algodão, enchimento antialérgico e acabamentos delicados feitos à mão.';
+      document.getElementById('detailDescription').textContent = descText;
+
+      const addBtn = document.getElementById('detailAddBtn');
+      addBtn.onclick = function() {
+        addToCart(item.titulo, Number(item.preco));
+        closeModal('productDetailModal');
+      };
+
+      openModal('productDetailModal');
+    }
 
     /* --- FUNÇÕES DE MÁSCARA --- */
     function maskCPF(input) {
