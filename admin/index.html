@@ -4,10 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Painel Administrativo — Pé de Outono</title>
-  <link href="config.yml?v=3" type="text/yaml" rel="cms-config-url" />
 </head>
 <body>
-  <script>window.CMS_MANUAL_INIT = false;</script>
+  <script>window.CMS_MANUAL_INIT = true;</script>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    CMS.init({
+      config: {
+        backend: {
+          name: 'github',
+          repo: 'MarceloBadaro/Atelier_Pe_de_Outono',
+          branch: 'main',
+          base_url: 'https://api.netlify.com',
+          site_id: 'c36baec4-b331-44df-97af-4bce11767a22'
+        }
+      }
+    });
+  </script>
 </body>
 </html>
