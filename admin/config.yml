@@ -2,7 +2,7 @@ backend:
   name: github
   repo: MarceloBadaro/Atelier_Pe_de_Outono
   branch: main
-  base_url: https://atelier-pe-de-outono.netlify.app
+  base_url: https://api.netlify.com
 
 media_folder: "images/produtos"
 public_folder: "images/produtos"
