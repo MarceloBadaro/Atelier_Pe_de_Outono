@@ -3,7 +3,7 @@ backend:
   repo: MarceloBadaro/Atelier_Pe_de_Outono
   branch: main
   base_url: https://api.netlify.com
-  site_id: atelier-pe-de-outono.netlify.app
+  site_id: c36baec4-b331-44df-97af-4bce11767a22
 
 media_folder: "images/produtos"
 public_folder: "images/produtos"
