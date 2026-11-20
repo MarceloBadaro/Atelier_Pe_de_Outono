@@ -23,6 +23,30 @@
       "categoria": "Especial Natal",
       "preco": 240,
       "imagem": "/images/produtos/Casal de cervos.jpg"
+    },
+    {
+      "titulo": "Boneca Clarice",
+      "categoria": "Bonecas Afetivas",
+      "preco": 85,
+      "imagem": "/images/produtos/Boneca Clarice.jpg"
+    },
+    {
+      "titulo": "Boneca Cecília",
+      "categoria": "Bonecas Afetivas",
+      "preco": 85,
+      "imagem": "/images/produtos/Boneca Cecília.jpg"
+    },
+    {
+      "titulo": "Boneca Lya",
+      "categoria": "Bonecas Afetivas",
+      "preco": 85,
+      "imagem": "/images/produtos/Boneca Lya.jpg"
+    },
+    {
+      "titulo": "Boneca Mel",
+      "categoria": "Bonecas Afetivas",
+      "preco": 85,
+      "imagem": "/images/produtos/Boneca Mel.jpg"
     }
   ]
 }
