@@ -22,6 +22,8 @@ collections:
               - { label: "Categoria (ex: Bonecas Afetivas, Bichinhos do Bosque)", name: "categoria", widget: "string" }
               - { label: "Preço (apenas números, ex: 120.00)", name: "preco", widget: "number", value_type: "float" }
               - { label: "Foto do Produto", name: "imagem", widget: "image" }
+              - { label: "Ajuste da Foto", name: "ajuste_foto", widget: "select", options: [{ label: "Preencher moldura (Cortar excessos)", value: "cover" }, { label: "Mostrar foto inteira (Sem cortar)", value: "contain" }], default: "cover", required: false }
+              - { label: "Posição / Foco da Foto", name: "posicao_foto", widget: "select", options: [{ label: "Centro", value: "center" }, { label: "Topo (Foco no rosto)", value: "top" }, { label: "Base (Foco nos pés)", value: "bottom" }, { label: "Esquerda", value: "left" }, { label: "Direita", value: "right" }], default: "center", required: false }
               - { label: "Detalhes / Características (tamanho, acessórios, material)", name: "detalhes", widget: "text", required: false }
 
       - label: "Páginas e Fotos do Ateliê"
@@ -33,6 +35,8 @@ collections:
             widget: "object"
             fields:
               - { label: "Foto de Lara Ramos no Ateliê", name: "imagem", widget: "image", required: false }
+              - { label: "Ajuste da Foto", name: "ajuste_foto", widget: "select", options: [{ label: "Mostrar foto inteira (Sem cortar)", value: "contain" }, { label: "Preencher moldura (Cortar excessos)", value: "cover" }], default: "contain", required: false }
+              - { label: "Posição / Foco da Foto", name: "posicao_foto", widget: "select", options: [{ label: "Centro", value: "center" }, { label: "Topo (Foco no rosto)", value: "top" }, { label: "Base (Foco no banco)", value: "bottom" }, { label: "Esquerda", value: "left" }, { label: "Direita", value: "right" }], default: "center", required: false }
               - { label: "Título da Seção", name: "titulo", widget: "string", default: "Histórias Costuradas com Calma e Afeto", required: false }
               - { label: "Frase em Destaque (Citação)", name: "citacao", widget: "string", default: "\"O outono ensina que desacelerar também é uma forma de florescer.\"", required: false }
               - { label: "1º Parágrafo", name: "paragrafo1", widget: "text", required: false }
@@ -43,5 +47,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Imagem de Bastidores / Tecidos", name: "imagem", widget: "image", required: false }
+              - { label: "Ajuste da Foto", name: "ajuste_foto", widget: "select", options: [{ label: "Preencher moldura (Cortar excessos)", value: "cover" }, { label: "Mostrar foto inteira (Sem cortar)", value: "contain" }], default: "cover", required: false }
+              - { label: "Posição / Foco da Foto", name: "posicao_foto", widget: "select", options: [{ label: "Centro", value: "center" }, { label: "Topo", value: "top" }, { label: "Base", value: "bottom" }, { label: "Esquerda", value: "left" }, { label: "Direita", value: "right" }], default: "center", required: false }
               - { label: "Título da Seção", name: "titulo", widget: "string", default: "Uma peça pensada exclusivamente para o seu espaço e sentimento", required: false }
               - { label: "Descrição", name: "descricao", widget: "text", required: false }
