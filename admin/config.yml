@@ -23,3 +23,25 @@ collections:
               - { label: "Preço (apenas números, ex: 120.00)", name: "preco", widget: "number", value_type: "float" }
               - { label: "Foto do Produto", name: "imagem", widget: "image" }
               - { label: "Detalhes / Características (tamanho, acessórios, material)", name: "detalhes", widget: "text", required: false }
+
+      - label: "Páginas e Fotos do Ateliê"
+        name: "institucional"
+        file: "conteudo.json"
+        fields:
+          - label: "Seção: Nossa Essência (Sobre Lara Ramos)"
+            name: "sobre"
+            widget: "object"
+            fields:
+              - { label: "Foto de Lara Ramos no Ateliê", name: "imagem", widget: "image", required: false }
+              - { label: "Título da Seção", name: "titulo", widget: "string", default: "Histórias Costuradas com Calma e Afeto", required: false }
+              - { label: "Frase em Destaque (Citação)", name: "citacao", widget: "string", default: "\"O outono ensina que desacelerar também é uma forma de florescer.\"", required: false }
+              - { label: "1º Parágrafo", name: "paragrafo1", widget: "text", required: false }
+              - { label: "2º Parágrafo", name: "paragrafo2", widget: "text", required: false }
+
+          - label: "Seção: Projetos Personalizados"
+            name: "personalizados"
+            widget: "object"
+            fields:
+              - { label: "Imagem de Bastidores / Tecidos", name: "imagem", widget: "image", required: false }
+              - { label: "Título da Seção", name: "titulo", widget: "string", default: "Uma peça pensada exclusivamente para o seu espaço e sentimento", required: false }
+              - { label: "Descrição", name: "descricao", widget: "text", required: false }
